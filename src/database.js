@@ -2,12 +2,16 @@ const mysql = require("mysql2");
 
 let connection = mysql.createConnection(
     { 
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "ruralea0605",
-    database: process.env.DB_NAME || "ruraleaDB",
-    port: process.env.DB_PORT || 3306
-    })
+    host:  "localhost",
+    user:  "root",
+    password: "My5qls3rv3r0723.",
+    database: "appbooks",
+    waitForConnections: true,
+    connectionLimit: 10,
+    maxIdle: 10,
+    idleTimeout: 60000,
+    queueLimit: 0
+    }).promise();
 
 console.log("Conexión con la BBDD creada")
 

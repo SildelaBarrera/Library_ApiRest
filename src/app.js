@@ -2,9 +2,10 @@ const express = require("express")
 const cors = require('cors')
 const libraryRouters = require("./routers/library.routers")
 const errorHandling = require("./error/errorHandling")
-const app = express();
 
-app.set("port", process.env.PORT || 4000)
+const app = express();
+ 
+app.set("port", process.env.PORT || 3000)
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -20,3 +21,8 @@ app.use(function(req, res, next)
 app.use(errorHandling);
 
 module.exports = app;
+
+
+
+
+
