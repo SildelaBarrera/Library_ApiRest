@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const password = require("./workbenchPassword")
+// const password = require("./workbenchPassword")
 
 let connection = mysql.createConnection(
     { 

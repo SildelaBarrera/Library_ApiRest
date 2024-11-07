@@ -2,7 +2,7 @@ const {Router} = require ("express")
 const router = Router();
 const booksCtrl = require("../controller/book.controller");
 const usersCtrl = require("../controller/user.controller")
-const booksTestCtrl = require("../controller/bookTest.controller.js")
+// const booksTestCtrl = require("../controller/bookTest.controller.js")
 
 router.post("/register", usersCtrl.postUser1);
 
@@ -19,9 +19,9 @@ router.put("/book", booksCtrl.putBook);
 router.delete("/book", booksCtrl.deleteBook); 
 
 
-router.get("/books", booksTestCtrl.getAllBooks);
-router.delete("/books", booksTestCtrl.deleteBook); 
-router.post("/books", booksTestCtrl.postBook); 
+// router.get("/books", booksTestCtrl.getAllBooks);
+// router.delete("/books", booksTestCtrl.deleteBook); 
+// router.post("/books", booksTestCtrl.postBook); 
 
 module.exports = router;
 

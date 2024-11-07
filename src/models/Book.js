@@ -1,13 +1,14 @@
 
 class Book{
 
-    constructor(title, type, author, price, photo, id_book){
+    constructor(title, type, author, read, photo, rating, id_book){
 
         this.title = title,
         this.type = type,
         this.author = author,
-        this.price = price,
+        this.read = read,
         this.photo = photo,
+        this.rating = rating,
         this.id_book = id_book
     
     }

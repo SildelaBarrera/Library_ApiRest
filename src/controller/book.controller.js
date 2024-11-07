@@ -47,11 +47,11 @@ const postBook = async (request, response) =>
 {
     try{
         
-        let params = [request.body.id_user, request.body.title, request.body.type, request.body.author, request.body.price, 
-            request.body.photo];
+        let params = [request.body.id_user, request.body.title, request.body.bookRead, request.body.type, request.body.author,  
+            request.body.photo, request.body.rating];
             // console.log(params);
-        let sql = "INSERT INTO book (id_user, title, type, author, price, photo)" +
-        "VALUES (?, ?, ?, ?, ?, ?)"
+        let sql = "INSERT INTO book (id_user, title, bookRead, type, author,  photo, rating)" +
+        "VALUES (?, ?, ?, ?, ?, ?, ?)"
 
         let[result] = await connection.query(sql, params);
         // console.log(result);
@@ -75,29 +75,33 @@ const putBook = async (request, response) =>
             if (request.body.title == ""){
                 request.body.title = undefined;
             }
+            if (request.body.bookRead == ""){
+                request.body.bookRead= undefined;
+            }
             if (request.body.type == ""){
             request.body.type = undefined;
             }
             if (request.body.author == ""){
             request.body.author = undefined;
             }
-            if (request.body.price == ""){
-            request.body.price= undefined;
-            }
             if (request.body.photo == ""){
                 request.body.photo= undefined;
+            }
+            if (request.body.rating == ""){
+                request.body.rating= undefined;
             }
             
             let params = [  
                         request.body.title,
+                        request.body.bookRead,
                         request.body.type,
                         request.body.author,
-                        request.body.price,
                         request.body.photo,
+                        request.body.rating,
                         request.body.id_book
                         ]
-            let sql = "UPDATE book SET title = COALESCE(?, title), type = COALESCE(?, type), author = COALESCE(?, author), price = COALESCE(?, price),  "
-             +  "photo = COALESCE(?, photo) WHERE id_book = ?";
+            let sql = "UPDATE book SET title = COALESCE(?, title), bookRead = COALESCE(?, bookRead), type = COALESCE(?, type), author = COALESCE(?, author),  "
+             +  "photo = COALESCE(?, photo), rating = COALESCE(?, rating) WHERE id_book = ?";
 
             let[result] = await connection.query(sql, params);
             console.log(result)
